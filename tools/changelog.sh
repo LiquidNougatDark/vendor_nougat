@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. $ANDROID_BUILD_TOP/vendor/twisted/tools/colors
+. $ANDROID_BUILD_TOP/vendor/mallow/tools/colors
 
 CURRENT_DATE=`date +%Y%m%d`
 PREVIOUS_DATE=`date +%s -d "1 day ago"`

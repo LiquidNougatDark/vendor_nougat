@@ -3,4 +3,5 @@
 #
 
 BOARD_SEPOLICY_DIRS += \
-    vendor/twisted/sepolicy
+    vendor/mallow/sepolicy
+

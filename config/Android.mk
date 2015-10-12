@@ -23,4 +23,4 @@
 LOCAL_PATH := $(call my-dir)
 
 # Include OptiPop common configuration
-include vendor/twisted/config/twisted.mk
+include vendor/mallow/config/mallow.mk

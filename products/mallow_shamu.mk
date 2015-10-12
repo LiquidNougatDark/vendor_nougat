@@ -12,21 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit AOSP device configuration for bullhead
-$(call inherit-product, device/lge/bullhead/aosp_bullhead.mk)
+# Inherit AOSP device configuration for angler
+$(call inherit-product, device/moto/shamu/aosp_shamu.mk)
 
 # Inherit common product files
-$(call inherit-product, vendor/twisted/config/common.mk)
+$(call inherit-product, vendor/mallow/config/common.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := twisted_bullhead
+PRODUCT_NAME := mallow_shamu
 PRODUCT_BRAND := google
-PRODUCT_DEVICE := bullhead
-PRODUCT_MODEL := Nexus 5X
-PRODUCT_MANUFACTURER := LGE
+PRODUCT_DEVICE := shamu
+PRODUCT_MODEL := Nexus 6
+PRODUCT_MANUFACTURER := Motorola
 
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=bullhead \
-    BUILD_FINGERPRINT=google/bullhead/bullhead:5.1.1/LVY48C/1914015:user/release-keys \
-    PRIVATE_BUILD_DESC="bullhead-user 5.1.1 LVY48C 1914015 release-keys"
+    PRODUCT_NAME=shamu \
+    BUILD_FINGERPRINT=google/shamu/shamu:6.0/MRA58K/2256973:user/release-keys \
+    PRIVATE_BUILD_DESC="shamu-user 6.0 MRA58K 2256973 release-keys"
+

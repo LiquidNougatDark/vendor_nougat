@@ -1,8 +1,8 @@
 # Brand
-PRODUCT_BRAND ?= twisted
+PRODUCT_BRAND ?= mallow
 
 # Local path for prebuilts
-LOCAL_PATH:= vendor/twisted/prebuilts/common/system
+LOCAL_PATH:= vendor/mallow/prebuilts/common/system
 
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
@@ -21,14 +21,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1 \
     ro.adb.secure=1
 
-# Nova Launcher
-#PRODUCT_COPY_FILES += \
-#    vendor/twisted/prebuilt/common/app/Nova.apk:system/app/Nova/Nova.apk \
-#    vendor/twisted/prebuilt/common/lib/libgif.so:system/app/Nova/lib/arm/libgif.so
-
 # Common overlay
 PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/twisted/overlay/common
+    vendor/mallow/overlay/common
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -40,71 +35,68 @@ PRODUCT_PACKAGES += \
 
 # media effects
 PRODUCT_COPY_FILES +=  \
-    vendor/twisted/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
-    vendor/twisted/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
+    vendor/mallow/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
+    vendor/mallow/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
 
 # Latin IME lib - gesture typing
 PRODUCT_COPY_FILES += \
-    vendor/twisted/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+    vendor/mallow/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 
 # Extra packages
 PRODUCT_PACKAGES += \
-    LockClock \
     Launcher3 \
-    Layersbackup \
-    AdAway \
-    Terminal \
     Busybox
 
 # APN list
 PRODUCT_COPY_FILES += \
-    vendor/twisted/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
+    vendor/mallow/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
 
 # SuperSU
 PRODUCT_COPY_FILES += \
-    vendor/twisted/prebuilt/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
-    vendor/twisted/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+    vendor/mallow/prebuilt/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+    vendor/mallow/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
 # init.d script support
 PRODUCT_COPY_FILES += \
-    vendor/twisted/prebuilt/bin/sysinit:system/bin/sysinit
+    vendor/mallow/prebuilt/bin/sysinit:system/bin/sysinit
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/twisted/prebuilt/addon.d/50-twisted.sh:system/addon.d/50-twisted.sh \
-    vendor/twisted/prebuilt/addon.d/99-backup.sh:system/addon.d/99-backup.sh \
-    vendor/twisted/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/twisted/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/twisted/prebuilt/etc/backup.conf:system/etc/backup.conf
+    vendor/mallow/prebuilt/addon.d/50-mallow.sh:system/addon.d/50-mallow.sh \
+    vendor/mallow/prebuilt/addon.d/99-backup.sh:system/addon.d/99-backup.sh \
+    vendor/mallow/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/mallow/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/mallow/prebuilt/etc/backup.conf:system/etc/backup.conf
 
 # Bootanimation support
 PRODUCT_COPY_FILES += \
-    vendor/twisted/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip
+    vendor/mallow/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip
 
 # Versioning System
 PRODUCT_VERSION_MAJOR = 6.0.0
 PRODUCT_VERSION_MINOR = alpha
 PRODUCT_VERSION_MAINTENANCE = 0.1
-ifdef TWISTED_BUILD_EXTRA
-    TWISTED_POSTFIX := -$(TWISTED_BUILD_EXTRA)
+
+ifdef MALLOW_BUILD_EXTRA
+    MALLOW_POSTFIX := -$(MALLOW_BUILD_EXTRA)
 endif
-ifndef TWISTED_BUILD_TYPE
-    TWISTED_BUILD_TYPE := alpha
-    TWISTED_POSTFIX := $(shell date +"%Y%m%d")
+ifndef MALLOW_BUILD_TYPE
+    MALLOW_BUILD_TYPE := alpha
+    MALLOW_POSTFIX := $(shell date +"%Y%m%d")
 endif
 
 # Set all versions
-TWISTED_VERSION := Twisted-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)
-TWISTED_MOD_VERSION := Twisted-$(TWISTED_BUILD)-$(TWISTED_BUILD_TYPE).$(PRODUCT_VERSION_MAINTENANCE)-$(TWISTED_POSTFIX)
+MALLOW_VERSION := Mallow-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)
+MALLOW_MOD_VERSION := Mallow-$(MALLOW_BUILD)-$(MALLOW_BUILD_TYPE).$(PRODUCT_VERSION_MAINTENANCE)-$(MALLOW_POSTFIX)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
-    twisted.ota.version=$(PRODUCT_VERSION_MAJOR)-$(TWISTED_POSTFIX) \
-    ro.twisted.version=$(TWISTED_VERSION) \
-    ro.modversion=$(TWISTED_MOD_VERSION) \
-    ro.twisted.buildtype=$(TWISTED_BUILD_TYPE)
+    mallow.ota.version=$(PRODUCT_VERSION_MAJOR)-$(MALLOW_POSTFIX) \
+    ro.mallow.version=$(MALLOW_VERSION) \
+    ro.modversion=$(MALLOW_MOD_VERSION) \
+    ro.mallow.buildtype=$(MALLOW_BUILD_TYPE)
 
-FINISHER_SCRIPT := vendor/twisted/tools/finisher
-SQUISHER_SCRIPT := vendor/twisted/tools/squisher
-CHANGELOG_SCRIPT := vendor/twisted/tools/changelog.sh
+FINISHER_SCRIPT := vendor/mallow/tools/finisher
+SQUISHER_SCRIPT := vendor/mallow/tools/squisher
+CHANGELOG_SCRIPT := vendor/mallow/tools/changelog.sh
 
