@@ -29,10 +29,6 @@ PRODUCT_PACKAGE_OVERLAYS += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# Build SimToolKit
-PRODUCT_PACKAGES += \
-    Stk
-
 # media effects
 PRODUCT_COPY_FILES +=  \
     vendor/mallow/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
@@ -44,8 +40,9 @@ PRODUCT_COPY_FILES += \
 
 # Extra packages
 PRODUCT_PACKAGES += \
+    Busybox \
     Launcher3 \
-    Busybox
+    Stk
 
 # APN list
 PRODUCT_COPY_FILES += \
