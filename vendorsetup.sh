@@ -1,2 +1,3 @@
 add_lunch_combo mallow_shamu-user
+add_lunch_combo mallow_shamu-userdebug
 
