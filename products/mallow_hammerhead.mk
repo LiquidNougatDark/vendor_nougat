@@ -12,22 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit AOSP device configuration for shamu
-$(call inherit-product, device/moto/shamu/aosp_shamu.mk)
+# Inherit AOSP device configuration for hammerhead
+$(call inherit-product, device/lge/hammerhead/full_hammerhead.mk)
 
 # Inherit common product files
 $(call inherit-product, vendor/mallow/config/common.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := mallow_shamu
+PRODUCT_NAME := mallow_hammerhead
 PRODUCT_BRAND := google
-PRODUCT_DEVICE := shamu
-PRODUCT_MODEL := Nexus 6
-PRODUCT_MANUFACTURER := Motorola
+PRODUCT_DEVICE := hammerhead
+PRODUCT_MODEL := Nexus 5
+PRODUCT_MANUFACTURER := LGE
 
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=shamu \
-    BUILD_FINGERPRINT=google/shamu/shamu:6.0/MRA58K/2256973:user/release-keys \
-    PRIVATE_BUILD_DESC="shamu-user 6.0 MRA58K 2256973 release-keys"
+    PRODUCT_NAME=hammerhead \
+    BUILD_FINGERPRINT=google/hammerhead/hammerhead:6.0/MRA58K/2256973:user/release-keys \
+    PRIVATE_BUILD_DESC="hammerhead-user 6.0 MRA58K 2256973 release-keys"
 
