@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # Inherit AOSP device configuration for hammerhead
-$(call inherit-product, device/lge/hammerhead/full_hammerhead.mk)
+$(call inherit-product, device/lge/hammerhead/aosp_hammerhead.mk)
 
 # Inherit common product files
 $(call inherit-product, vendor/mallow/config/common.mk)
