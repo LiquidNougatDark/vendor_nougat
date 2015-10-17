@@ -10,10 +10,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
     ro.com.google.clientidbase=android-google \
     ro.com.android.wifi-watchlist=GoogleGuest \
+    ro.com.android.dateformat=MM-dd-yyyy \
+    net.tethering.noprovisioning=true \
     ro.setupwizard.enterprise_mode=1 \
     ro.com.android.dataroaming=false \
     persist.sys.dun.override=0 \
-    ro.build.selinux=1
+    drm.service.enabled=true \
+    ro.build.selinux=1 \
+    ro.adb.secure=1
 
 # Common overlay
 PRODUCT_PACKAGE_OVERLAYS += \
