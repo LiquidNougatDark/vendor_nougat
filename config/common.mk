@@ -36,7 +36,7 @@ PRODUCT_COPY_FILES +=  \
 
 # Latin IME lib - gesture typing
 PRODUCT_COPY_FILES += \
-    vendor/mallow/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+    vendor/mallow/prebuilt/lib/libjni_latinime.so:system/lib/libjni_latinime.so
 
 # Extra packages
 PRODUCT_PACKAGES += \
