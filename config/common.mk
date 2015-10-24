@@ -58,6 +58,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/nougat/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 
+# Camera effects
+ifneq ($(filter nougat_shamu,$(TARGET_PRODUCT)),)
+PRODUCT_COPY_FILES +=  \
+    vendor/nougat/prebuilt/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
+    vendor/nougat/prebuilt/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
+endif
+
 # Include packages
 PRODUCT_PACKAGES += \
     AOSPLinks \
