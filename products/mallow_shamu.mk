@@ -18,6 +18,9 @@ $(call inherit-product, device/moto/shamu/aosp_shamu.mk)
 # Inherit common product files
 $(call inherit-product, vendor/mallow/config/common.mk)
 
+# CM Overlay
+DEVICE_PACKAGE_OVERLAYS += device/moto/shamu/overlay-cm
+
 # Override AOSP build properties
 PRODUCT_NAME := mallow_shamu
 PRODUCT_BRAND := google
