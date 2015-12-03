@@ -32,14 +32,9 @@ PRODUCT_COPY_FILES +=  \
     vendor/mallow/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
     vendor/mallow/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
 
-# Latin IME lib gesture typing
-ifneq ($(filter mallow_hammerhead mallow_shamu,$(TARGET_PRODUCT)),)
+# Latin IME lib - gesture typing
 PRODUCT_COPY_FILES += \
-    vendor/mallow/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so
-else
-PRODUCT_COPY_FILES += \
-    vendor/mallow/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
-endif
+    vendor/mallow/prebuilt/lib/libjni_latinime.so:system/lib/libjni_latinime.so
 
 # Extra packages
 PRODUCT_PACKAGES += \
@@ -101,3 +96,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 FINISHER_SCRIPT := vendor/mallow/tools/finisher
 SQUISHER_SCRIPT := vendor/mallow/tools/squisher
 CHANGELOG_SCRIPT := vendor/mallow/tools/changelog.sh
+
