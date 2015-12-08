@@ -1,73 +1,83 @@
 # Brand
 PRODUCT_BRAND ?= mallow
 
-# Local path for prebuilts
-LOCAL_PATH:= vendor/mallow/prebuilts/common/system
-
+# Google property overides
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
-    ro.com.google.clientidbase=android-google \
     ro.com.android.wifi-watchlist=GoogleGuest \
-    ro.com.android.dateformat=MM-dd-yyyy \
-    net.tethering.noprovisioning=true \
     ro.setupwizard.enterprise_mode=1 \
-    ro.com.android.dataroaming=false \
+    ro.com.android.dateformat=MM-dd-yyyy= vendor/mallow/prebuilts/common/system
+
+# UBER property overides
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.fw.bg_apps_limit=20 \
+    pm.sleep.mode=1 \
+    wifi.supplicant_scan_interval=180 \
+    windowsmgr.max_events_per_sec=150 \
+    debug.performance.tuning=1 \
+    ro.ril.power_collapse=1 \
+    persist.service.lgospd.enable=0 \
+    persist.service.pcsync.enable=0 \
+    ro.facelock.black_timeout=400 \
+    ro.facelock.det_timeout=1500 \
+    ro.facelock.rec_timeout=2500 \
+    ro.facelock.lively_timeout=2500 \
+    ro.facelock.est_max_time=600 \
+    ro.facelock.use_intro_anim=false \
+    ro.setupwizard.network_required=false \
+    ro.setupwizard.gservices_delay=-1 \
+    net.tethering.noprovisioning=true \
     persist.sys.dun.override=0 \
-    drm.service.enabled=true \
-    ro.build.selinux=1 \
     ro.adb.secure=1
 
-# Common overlay
-PRODUCT_PACKAGE_OVERLAYS += \
-    vendor/mallow/overlay/common
-
-# Enable SIP+VoIP on all targets
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
-
-# media effects
-PRODUCT_COPY_FILES +=  \
-    vendor/mallow/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
-    vendor/mallow/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
-
-# Latin IME lib - gesture typing
-PRODUCT_COPY_FILES += \
-    vendor/mallow/prebuilt/lib/libjni_latinime.so:system/lib/libjni_latinime.so
-
-# Extra packages
-PRODUCT_PACKAGES += \
-    Busybox \
-    Camera2 \
-    Gallery2 \
-    Launcher3 \
-    Stk
+# Include overlays
+PRODUCT_PACKAGE_OVERLAYS += vendor/mallow/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/mallow/overlay/$(TARGET_PRODUCT)
 
 # APN list
 PRODUCT_COPY_FILES += \
     vendor/mallow/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
 
-# SuperSU
+# Enable SIP+VoIP
 PRODUCT_COPY_FILES += \
-    vendor/mallow/prebuilt/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
-    vendor/mallow/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# init.d script support
+# Proprietary latinime lib needed for swyping
 PRODUCT_COPY_FILES += \
-    vendor/mallow/prebuilt/bin/sysinit:system/bin/sysinit
+    vendor/mallow/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 
-# Backup Tool
+# Extra packages
+PRODUCT_PACKAGES += \
+    Busybox \
+    Camera2 \
+    Exchange2 \
+    Gallery2 \
+    Launcher3 \
+    Stk
+
+# Camera Effects
+ifneq ($(filter mallow_flounder mallow_hammerhead mallow_shamu,$(TARGET_PRODUCT)),)
+PRODUCT_COPY_FILES +=  \
+    vendor/mallow/prebuilt/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
+    vendor/mallow/prebuilt/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
+endif
+
+# Backuptool support
 PRODUCT_COPY_FILES += \
     vendor/mallow/prebuilt/addon.d/50-mallow.sh:system/addon.d/50-mallow.sh \
-    vendor/mallow/prebuilt/addon.d/99-backup.sh:system/addon.d/99-backup.sh \
-    vendor/mallow/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
     vendor/mallow/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/mallow/prebuilt/etc/backup.conf:system/etc/backup.conf
+    vendor/mallow/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh
 
 # Bootanimation support
 PRODUCT_COPY_FILES += \
     vendor/mallow/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip
+
+# SuperSU
+PRODUCT_COPY_FILES += \
+    vendor/mallow/prebuilt/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
+    vendor/mallow/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
 
 # Versioning System
 PRODUCT_VERSION_MAJOR = 6.0.0
@@ -96,4 +106,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 FINISHER_SCRIPT := vendor/mallow/tools/finisher
 SQUISHER_SCRIPT := vendor/mallow/tools/squisher
 CHANGELOG_SCRIPT := vendor/mallow/tools/changelog.sh
-
