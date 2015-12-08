@@ -74,14 +74,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/mallow/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip
 
-# SuperSU
-PRODUCT_COPY_FILES += \
-    vendor/mallow/prebuilt/etc/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip \
-    vendor/mallow/prebuilt/etc/init.d/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon
-
 # Versioning System
 PRODUCT_VERSION_MAJOR = 6.0.0
-PRODUCT_VERSION_MINOR = beta
+PRODUCT_VERSION_MINOR = stable
 PRODUCT_VERSION_MAINTENANCE = 1.0
 
 ifdef MALLOW_BUILD_EXTRA

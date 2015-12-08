@@ -5,6 +5,10 @@
 
 export C=/tmp/backupdir
 export S=/system
+export V=6
+
+# Scripts in /system/addon.d expect to find backuptool.functions in /tmp
+cp -f /tmp/install/bin/backuptool.functions /tmp
 
 # Preserve /system/addon.d in /tmp/addon.d
 preserve_addon_d() {
@@ -23,6 +27,18 @@ restore_addon_d() {
   fi
 }
 
+# Proceed only if /system is the expected major and minor version
+check_prereq() {
+# If there is no build.prop file the partition is probably empty.
+if [ ! -r /system/build.prop ]; then
+    return 0
+fi
+if ( ! grep -q "^ro.build.version.release=$V.*" /system/build.prop ); then
+  echo "Not backing up files from incompatible version: $V"
+  exit 127
+fi
+}
+
 # Execute /system/addon.d/*.sh scripts with $1 parameter
 run_stage() {
 if [ -d /tmp/addon.d/ ]; then
@@ -35,12 +51,14 @@ fi
 case "$1" in
   backup)
     mkdir -p $C
+    check_prereq
     preserve_addon_d
     run_stage pre-backup
     run_stage backup
     run_stage post-backup
   ;;
   restore)
+    check_prereq
     run_stage pre-restore
     run_stage restore
     run_stage post-restore
