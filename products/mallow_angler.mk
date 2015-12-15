@@ -12,14 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit AOSP device configuration for shamu
+# Inherit AOSP device configuration for angler
 $(call inherit-product, device/huawei/angler/aosp_angler.mk)
 
 # Inherit common product files
 $(call inherit-product, vendor/mallow/config/common.mk)
-
-# CM Overlay
-DEVICE_PACKAGE_OVERLAYS += device/huawei/angler/overlay-cm
 
 # Override AOSP build properties
 PRODUCT_NAME := mallow_angler
@@ -30,7 +27,6 @@ PRODUCT_MANUFACTURER := Huawei
 
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-	PRODUCT_NAME=angler \
-	BUILD_FINGERPRINT="google/angler/angler:6.0/MDB08M/2353240:user/release-keys" \
-	PRIVATE_BUILD_DESC="angler-user 6.0 MDB08M 2353240 release-keys"
-
+    PRODUCT_NAME=angler \
+    BUILD_FINGERPRINT=google/angler/angler:6.0.1/MMB29M/2431559:user/release-keys \
+    PRIVATE_BUILD_DESC="angler-user 6.0.1 MMB29M 2431559 release-keys"

@@ -18,9 +18,6 @@ $(call inherit-product, device/lge/hammerhead/full_hammerhead.mk)
 # Inherit common product files
 $(call inherit-product, vendor/mallow/config/common.mk)
 
-# CM Overlay
-DEVICE_PACKAGE_OVERLAYS += device/lge/hammerhead/overlay-cm
-
 # Override AOSP build properties
 PRODUCT_NAME := mallow_hammerhead
 PRODUCT_BRAND := google
@@ -30,6 +27,6 @@ PRODUCT_MANUFACTURER := LGE
 
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-	PRODUCT_NAME=hammerhead \
-	BUILD_FINGERPRINT="google/hammerhead/hammerhead:6.0/MRA58N/2324235:user/release-keys" \
-	PRIVATE_BUILD_DESC="hammerhead-user 6.0 MRA58N 2324235 release-keys"
+    PRODUCT_NAME=hammerhead \
+    BUILD_FINGERPRINT=google/hammerhead/hammerhead:6.0.1/MMB29K/2419427:user/release-keys \
+    PRIVATE_BUILD_DESC="hammerhead-user 6.0.1 MMB29K 2419427 release-keys"

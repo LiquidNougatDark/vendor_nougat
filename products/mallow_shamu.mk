@@ -18,9 +18,6 @@ $(call inherit-product, device/moto/shamu/aosp_shamu.mk)
 # Inherit common product files
 $(call inherit-product, vendor/mallow/config/common.mk)
 
-# CM Overlay
-DEVICE_PACKAGE_OVERLAYS += device/moto/shamu/overlay-cm
-
 # Override AOSP build properties
 PRODUCT_NAME := mallow_shamu
 PRODUCT_BRAND := google
@@ -30,7 +27,6 @@ PRODUCT_MANUFACTURER := Motorola
 
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-	PRODUCT_NAME=shamu \
-	BUILD_FINGERPRINT="google/shamu/shamu:6.0/MRA58R/2308909:user/release-keys" \
-	PRIVATE_BUILD_DESC="shamu-user 6.0 MRA58R 2308909 release-keys"
-
+    PRODUCT_NAME=shamu \
+    BUILD_FINGERPRINT=google/shamu/shamu:6.0.1/MMB29K/2419427:user/release-keys \
+    PRIVATE_BUILD_DESC="shamu-user 6.0.1 MMB29K 2419427 release-keys"
