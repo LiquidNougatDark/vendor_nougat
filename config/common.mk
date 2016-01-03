@@ -76,15 +76,15 @@ PRODUCT_COPY_FILES += \
     vendor/mallow/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip
 
 # Versioning System
-PRODUCT_VERSION_MAJOR = 6.0.0
-PRODUCT_VERSION_MINOR = stable
+PRODUCT_VERSION_MAJOR = 6.0.1
+PRODUCT_VERSION_MINOR = build
 PRODUCT_VERSION_MAINTENANCE = 1.0
 
 ifdef MALLOW_BUILD_EXTRA
     MALLOW_POSTFIX := -$(MALLOW_BUILD_EXTRA)
 endif
 ifndef MALLOW_BUILD_TYPE
-    MALLOW_BUILD_TYPE := alpha
+    MALLOW_BUILD_TYPE := beta
     MALLOW_POSTFIX := $(shell date +"%Y%m%d")
 endif
 
