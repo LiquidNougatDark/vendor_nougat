@@ -32,6 +32,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     pm.sleep.mode=1 \
     ro.adb.secure=1
 
+# Enable MTP by default
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.usb.config=mtp,adb \
+    persist.sys.usb.config=mtp,adb
+
 # GoogleDNS
 PRODUCT_PROPERTY_OVERRIDES += \
     net.rmnet0.dns1=8.8.8.8 \
