@@ -30,7 +30,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.gservices_delay=-1 \
     net.tethering.noprovisioning=true \
     persist.sys.dun.override=0 \
-    ro.adb.secure=0
+    ro.adb.secure=1 \
+    persist.service.adb.enable=1 \
+    persist.sys.usb.config=mtp,adb \
 
 # Include overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/mallow/overlay/common
