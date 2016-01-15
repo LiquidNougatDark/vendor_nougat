@@ -76,6 +76,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/mallow/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip
 
+# Theme engine
+include vendor/mallow/config/themes.mk
+
 # Versioning System
 PRODUCT_VERSION_MAJOR = 6.0.1
 PRODUCT_VERSION_MINOR = build
