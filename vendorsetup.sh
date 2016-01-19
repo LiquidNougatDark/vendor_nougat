@@ -1,5 +1,4 @@
 add_lunch_combo mallow_angler-userdebug
 add_lunch_combo mallow_bullhead-userdebug
-add_lunch_combo mallow_hammerhead-userdebug
 add_lunch_combo mallow_shamu-userdebug
 
