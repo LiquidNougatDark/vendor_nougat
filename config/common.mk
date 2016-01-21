@@ -1,38 +1,24 @@
 # Brand
 PRODUCT_BRAND ?= mallow
 
-# Google property overides
+# Property overrides
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html \
+    ro.com.google.clientidbase=android-google \
     ro.com.android.wifi-watchlist=GoogleGuest \
+    ro.error.receiver.system.apps=com.google.android.gms \
     ro.setupwizard.enterprise_mode=1 \
-    ro.com.android.dateformat=MM-dd-yyyy= vendor/mallow/prebuilts/common/system
-
-# UBER property overides
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.fw.bg_apps_limit=24 \
-    wifi.supplicant_scan_interval=180 \
-    windowsmgr.max_events_per_sec=150 \
-    debug.performance.tuning=1 \
-    ro.ril.power_collapse=1 \
-    persist.service.lgospd.enable=0 \
-    persist.service.pcsync.enable=0 \
-    ro.facelock.black_timeout=400 \
-    ro.facelock.det_timeout=1500 \
-    ro.facelock.rec_timeout=2500 \
-    ro.facelock.lively_timeout=2500 \
-    ro.facelock.est_max_time=600 \
-    ro.facelock.use_intro_anim=false \
-    ro.setupwizard.network_required=false \
-    ro.setupwizard.gservices_delay=-1 \
+    ro.com.android.dateformat=MM-dd-yyyy \
+    ro.com.android.dataroaming=false \
+    drm.service.enabled=true \
     net.tethering.noprovisioning=true \
     persist.sys.dun.override=0 \
-    persist.service.adb.enable=1 \
-    persist.sys.usb.config=adb,mtp \
-    pm.sleep.mode=1 \
-    ro.adb.secure=0
+    ro.setupwizard.network_required=false \
+    ro.setupwizard.gservices_delay=-1 \
+    ro.build.selinux=1 \
+    ro.adb.secure=1
 
 # Include overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/mallow/overlay/common
