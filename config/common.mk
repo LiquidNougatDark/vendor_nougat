@@ -12,8 +12,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # UBER property overides
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.fw.bg_apps_limit=20 \
-    pm.sleep.mode=1 \
+    ro.sys.fw.bg_apps_limit=24 \
     wifi.supplicant_scan_interval=180 \
     windowsmgr.max_events_per_sec=150 \
     debug.performance.tuning=1 \
@@ -30,9 +29,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.gservices_delay=-1 \
     net.tethering.noprovisioning=true \
     persist.sys.dun.override=0 \
-    ro.adb.secure=1 \
     persist.service.adb.enable=1 \
-    persist.sys.usb.config=mtp,adb \
+    persist.sys.usb.config=adb,mtp \
+    pm.sleep.mode=1 \
+    ro.adb.secure=0
 
 # Include overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/mallow/overlay/common
