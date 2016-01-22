@@ -17,8 +17,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.dun.override=0 \
     ro.setupwizard.network_required=false \
     ro.setupwizard.gservices_delay=-1 \
-    ro.build.selinux=1 \
-    ro.adb.secure=1
+    ro.adb.secure=0
 
 # Include overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/mallow/overlay/common
@@ -46,7 +45,7 @@ PRODUCT_PACKAGES += \
     Stk
 
 # Camera Effects
-ifneq ($(filter mallow_flounder mallow_hammerhead mallow_shamu,$(TARGET_PRODUCT)),)
+ifneq ($(filter mallow_shamu,$(TARGET_PRODUCT)),)
 PRODUCT_COPY_FILES +=  \
     vendor/mallow/prebuilt/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
     vendor/mallow/prebuilt/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
