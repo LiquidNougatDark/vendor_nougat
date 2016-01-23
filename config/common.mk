@@ -38,8 +38,6 @@ PRODUCT_COPY_FILES += \
 # Extra packages
 PRODUCT_PACKAGES += \
     Busybox \
-    Camera2 \
-    Exchange2 \
     Gallery2 \
     Launcher3 \
     Stk
