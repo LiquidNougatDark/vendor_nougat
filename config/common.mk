@@ -17,6 +17,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.dun.override=0 \
     ro.setupwizard.network_required=false \
     ro.setupwizard.gservices_delay=-1 \
+    persist.service.adb.enable=1 \
     ro.adb.secure=0
 
 # Include overlays
@@ -40,6 +41,7 @@ PRODUCT_PACKAGES += \
     Busybox \
     Gallery2 \
     Launcher3 \
+    MusicFX \
     Stk
 
 # Camera Effects
