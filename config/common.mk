@@ -35,13 +35,20 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-# Proprietary latinime libs needed for Keyboard swyping
-ifneq ($(filter screwd_hammerhead screwd_flo screwd_shamu,$(TARGET_PRODUCT)),)
+# latinime libs
+ifneq ($(filter mallow_shamu,$(TARGET_PRODUCT)),)
 PRODUCT_COPY_FILES += \
     vendor/mallow/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 else
 PRODUCT_COPY_FILES += \
     vendor/mallow/prebuilt/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+endif
+
+# media effects
+ifneq ($(filter mallow_shamu,$(TARGET_PRODUCT)),)
+PRODUCT_COPY_FILES +=  \
+    vendor/mallow/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
+    vendor/mallow/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
 endif
 
 # Extra packages
@@ -51,13 +58,6 @@ PRODUCT_PACKAGES += \
     Launcher3 \
     MusicFX \
     Stk
-
-ifneq ($(filter mallow_shamu,$(TARGET_PRODUCT)),)
-# media effects
-PRODUCT_COPY_FILES +=  \
-    vendor/mallow/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
-    vendor/mallow/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
-endif
 
 # Backuptool support
 PRODUCT_COPY_FILES += \
