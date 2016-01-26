@@ -4,4 +4,3 @@
 
 BOARD_SEPOLICY_DIRS += \
     vendor/mallow/sepolicy
-
