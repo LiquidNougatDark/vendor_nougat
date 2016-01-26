@@ -54,6 +54,13 @@ PRODUCT_COPY_FILES +=  \
     vendor/mallow/prebuilt/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
 endif
 
+ifneq ($(filter mallow_shamu,$(TARGET_PRODUCT)),)
+# media effects
+PRODUCT_COPY_FILES +=  \
+    vendor/mallow/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
+    vendor/mallow/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
+endif
+
 # Backuptool support
 PRODUCT_COPY_FILES += \
     vendor/mallow/prebuilt/addon.d/50-mallow.sh:system/addon.d/50-mallow.sh \
