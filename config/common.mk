@@ -52,9 +52,7 @@ endif
 
 # Extra packages
 PRODUCT_PACKAGES += \
-    Browser \
     Busybox \
-    DeskClock \
     ExactCalculator \
     Gallery2 \
     Launcher3 \
