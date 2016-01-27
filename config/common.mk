@@ -20,7 +20,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.network_required=false \
     ro.setupwizard.gservices_delay=-1 \
     wifi.supplicant_scan_interval=180 \
-    windowsmgr.max_events_per_sec=150 \
     ro.adb.secure=0
 
 # Include overlays
