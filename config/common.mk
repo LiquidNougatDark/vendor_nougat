@@ -34,6 +34,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
+# init.d script support
+PRODUCT_COPY_FILES += \
+    vendor/mallow/prebuilt/bin/sysinit:system/bin/sysinit
+
+# userinit support
+PRODUCT_COPY_FILES += \
+    vendor/mallow/prebuilt/etc/init.d/90userinit:system/etc/init.d/90userinit
+
 # latinime libs
 ifneq ($(filter mallow_shamu,$(TARGET_PRODUCT)),)
 PRODUCT_COPY_FILES += \
