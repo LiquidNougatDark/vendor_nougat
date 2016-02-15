@@ -1,7 +1,3 @@
-# SELinux override
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1
-
 # Extra packages
 PRODUCT_PACKAGES += \
     Busybox \

@@ -29,8 +29,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.performance.tuning=1 \
     ro.cmte.legacy.version=1 \
     ro.ril.power_collapse=1 \
-    pm.sleep.mode=1 \
-    ro.adb.secure=1
+    pm.sleep.mode=1
+
+# SELinux override
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.selinux=1
+
+# Enable ADB authentication
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.adb.secure=0 \
+    ro.secure=0
 
 # Enable MTP by default
 PRODUCT_PROPERTY_OVERRIDES += \
