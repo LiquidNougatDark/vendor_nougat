@@ -69,10 +69,9 @@ PRODUCT_PACKAGES += \
 
 # Backuptool support
 PRODUCT_COPY_FILES += \
-    vendor/mallow/prebuilt/addon.d/50-mallow.sh:system/addon.d/50-mallow.sh \
     vendor/mallow/prebuilt/bin/50-backup.sh:system/bin/50-backup.sh \
-    vendor/mallow/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/mallow/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh
+    vendor/mallow/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/mallow/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions
 
 # Bootanimation support
 PRODUCT_COPY_FILES += \
