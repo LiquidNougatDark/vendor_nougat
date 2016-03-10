@@ -67,6 +67,13 @@ PRODUCT_PACKAGES += \
     MusicFX \
     Stk
 
+# Extra tools
+PRODUCT_PACKAGES += \
+    e2fsck \
+    mount.exfat \
+    fsck.exfat \
+    mkfs.exfat
+
 # Backuptool support
 PRODUCT_COPY_FILES += \
     vendor/mallow/prebuilt/bin/50-backup.sh:system/bin/50-backup.sh \
