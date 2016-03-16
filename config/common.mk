@@ -71,6 +71,7 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     Gallery2 \
     Launcher3 \
+    messaging \
     MusicFX \
     Stk
 
