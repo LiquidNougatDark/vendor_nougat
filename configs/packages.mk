@@ -5,6 +5,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Extra packages
 PRODUCT_PACKAGES += \
     Busybox \
+    KernelAdiutor \
     Viper4Android
 
 # Included packages
