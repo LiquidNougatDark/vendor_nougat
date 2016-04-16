@@ -67,6 +67,7 @@ endif
 
 # Extra packages
 PRODUCT_PACKAGES += \
+    Browser \
     Busybox \
     ExactCalculator \
     Gallery2 \
