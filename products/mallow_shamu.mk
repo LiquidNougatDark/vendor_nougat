@@ -16,7 +16,7 @@
 $(call inherit-product, device/moto/shamu/aosp_shamu.mk)
 
 # Inherit common product files
-$(call inherit-product, vendor/mallow/config/common.mk)
+$(call inherit-product, vendor/mallow/main.mk)
 
 # Override AOSP build properties
 PRODUCT_NAME := mallow_shamu
