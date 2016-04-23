@@ -5,7 +5,7 @@
 
 export C=/tmp/backupdir
 export S=/system
-export V=6
+export V=6.0
 
 # Scripts in /system/addon.d expect to find backuptool.functions in /tmp
 cp -f /tmp/install/bin/backuptool.functions /tmp
@@ -35,7 +35,7 @@ if [ ! -r /system/build.prop ]; then
 fi
 if ( ! grep -q "^ro.build.version.release=$V.*" /system/build.prop ); then
   echo "Not backing up files from incompatible version: $V"
-  exit 127
+  return 0
 fi
 }
 

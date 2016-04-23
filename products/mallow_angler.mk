@@ -12,11 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Check for target product
+
+ifeq (mallow_angler,$(TARGET_PRODUCT))
+
+# Include common configuration
+include vendor/mallow/main.mk
+
 # Inherit AOSP device configuration for angler
 $(call inherit-product, device/huawei/angler/aosp_angler.mk)
-
-# Inherit common product files
-$(call inherit-product, vendor/mallow/main.mk)
 
 # Override AOSP build properties
 PRODUCT_NAME := mallow_angler
@@ -30,3 +34,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=angler \
     BUILD_FINGERPRINT=google/angler/angler:6.0.1/MHC19Q/2705526:user/release-keys \
     PRIVATE_BUILD_DESC="angler-user 6.0.1 MHC19Q 2705526 release-keys"
+
+endif
