@@ -6,6 +6,10 @@ ifeq (Linux,$(UNAME))
   HOST_OS := linux
 endif
 
+# Enable system ccache
+export USE_CCACHE := 1
+export USE_SYSTEM_CCACHE := 1
+
 # Disable jack building to fix clang errors
 export ANDROID_COMPILE_WITH_JACK := false
 
