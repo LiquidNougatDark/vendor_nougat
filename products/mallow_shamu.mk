@@ -36,3 +36,18 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="shamu-user 6.0.1 MOB30D 2704746 release-keys"
 
 endif
+
+# Inline kernel building
+TARGET_GCC_VERSION_ARM := 7.0
+TARGET_KERNEL_CONFIG := B14CKB1RD_defconfig
+TARGET_KERNEL_SOURCE := kernel/moto/shamu
+BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+
+# Sabermod optimizations
+export STRICT_ALIASING := true
+export ENABLE_GCCONLY := true
+export KRAIT_TUNINGS := true
+export GRAPHITE_OPTS := true
+export CLANG_O3 := true
+export ENABLE_SANITIZE := true
+export USE_PIPE := true
