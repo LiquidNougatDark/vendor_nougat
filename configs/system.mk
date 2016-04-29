@@ -44,7 +44,3 @@ endif
 # APN list
 PRODUCT_COPY_FILES += \
     vendor/$(VENDOR)/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml
-
-FINISHER_SCRIPT := vendor/mallow/tools/finisher
-SQUISHER_SCRIPT := vendor/mallow/tools/squisher
-CHANGELOG_SCRIPT := vendor/mallow/tools/changelog.sh
