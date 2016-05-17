@@ -1,17 +1,17 @@
 # Written for UBER toolchains (UBERTC)
 # Requires a Linux Host
 
-UNAME := $(shell uname -s)
-ifeq (Linux,$(UNAME))
-  HOST_OS := linux
-endif
-
 # Enable system ccache
 export USE_CCACHE := 1
 export USE_SYSTEM_CCACHE := 1
 
 # Disable jack building to fix clang errors
 export ANDROID_COMPILE_WITH_JACK := false
+
+UNAME := $(shell uname -s)
+ifeq (Linux,$(UNAME))
+  HOST_OS := linux
+endif
 
 ifeq (linux,$(HOST_OS))
 ifeq (arm,$(TARGET_ARCH))
@@ -60,7 +60,7 @@ ifeq (arm64,$(TARGET_ARCH))
 # AARCH64 ROM TOOLCHAIN INFO
 UBER_AND_PATH := prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-linux-android-4.9
 UBER_AND := $(shell $(UBER_AND_PATH)/bin/aarch64-linux-android-gcc --version)
-UBER_AND_VERSION_NUMBER := $(shell $(AND_TC_PATH)/bin/aarch64-linux-android-gcc -dumpversion 2>&1)
+UBER_AND_VERSION_NUMBER := $(shell $(UBER_AND_PATH)/bin/aarch64-linux-android-gcc -dumpversion 2>&1)
 UBER_AND_DATE := $(filter 20150% 20151% 20160% 20161%,$(UBER_AND))
 ifneq ($(filter (UBERTC%),$(UBER_AND)),)
   UBER_AND_NAME := UBERTC
@@ -98,30 +98,30 @@ ADDITIONAL_BUILD_PROPERTIES += \
     ro.uber.kernel=$(AARCH64_KERNEL_PROP)
 endif
 
-# UBERTC OPTIMIZATIONS 
-ifeq (true,$(STRICT_ALIASING))
-  OPT1 := (strict)
-endif
-ifeq (true,$(GRAPHITE_OPTS))
-  OPT2 := (graphite)
-endif
-ifeq (true,$(KRAIT_TUNINGS))
-  OPT3 := ($(TARGET_CPU_VARIANT))
-endif
-ifeq (true,$(ENABLE_GCCONLY))
-  OPT4 := (gcconly)
-endif
+# UBERTC OPTIMIZATIONS
 ifeq (true,$(CLANG_O3))
-  OPT5 := (clang_O3)
+  OPT1 := (O3)
 endif
 ifeq (true,$(CORTEX_TUNINGS))
-  OPT6 := (CORTEX)
+  OPT2 := (cortex)
 endif
-ifeq (true,$(USE_PIPE))
-  OPT7 := (pipe)
+ifeq (true,$(ENABLE_GCCONLY))
+  OPT3 := (gcconly)
 endif
 ifeq (true,$(ENABLE_SANITIZE))
-  OPT8 := (mem-sanitize)
+  OPT4 := (sanitize)
+endif
+ifeq (true,$(GRAPHITE_OPTS))
+  OPT5 := (graphite)
+endif
+ifeq (true,$(KRAIT_TUNINGS))
+  OPT6 := (krait)
+endif
+ifeq (true,$(STRICT_ALIASING))
+  OPT7 := (strict)
+endif
+ifeq (true,$(USE_PIPE))
+  OPT8 := (pipe)
 endif
 
 GCC_OPTIMIZATION_LEVELS := $(OPT1)$(OPT2)$(OPT3)$(OPT4)$(OPT5)$(OPT6)$(OPT7)$(OPT8)
