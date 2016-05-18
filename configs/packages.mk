@@ -10,7 +10,6 @@ PRODUCT_PACKAGES += \
 # Included packages
 PRODUCT_PACKAGES += \
     Browser \
-    DeskClock \
     ExactCalculator \
     Gallery2 \
     Launcher3 \
