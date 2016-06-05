@@ -26,8 +26,8 @@ PRODUCT_COPY_FILES += \
 
 # SuperSU
 PRODUCT_COPY_FILES += \
-    vendor/mallow/prebuilt/etc/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon \
-    vendor/mallow/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip
+    vendor/$(VENDOR)/prebuilt/etc/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon \
+    vendor/$(VENDOR)/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip
 
 # Viper4Android
 PRODUCT_COPY_FILES += \
@@ -37,8 +37,8 @@ PRODUCT_COPY_FILES += \
 ifneq ($(filter mallow_flo mallow_hammerhead mallow_shamu,$(TARGET_PRODUCT)),)
 # media effects
 PRODUCT_COPY_FILES +=  \
-    vendor/mallow/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
-    vendor/mallow/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
+    vendor/$(VENDOR)/prebuilt/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
+    vendor/$(VENDOR)/prebuilt/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
 endif
 
 # APN list

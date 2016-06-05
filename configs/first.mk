@@ -38,8 +38,8 @@ PRODUCT_COPY_FILES += \
 # Proprietary latinime libs
 ifneq ($(filter mallow_hammerhead mallow_flo mallow_shamu,$(TARGET_PRODUCT)),)
 PRODUCT_COPY_FILES += \
-    vendor/mallow/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+    vendor/$(VENDOR)/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 else
 PRODUCT_COPY_FILES += \
-    vendor/mallow/prebuilt/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+    vendor/$(VENDOR)/prebuilt/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
 endif
