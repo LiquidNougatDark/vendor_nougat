@@ -6,7 +6,7 @@ export USE_CCACHE := 1
 export USE_SYSTEM_CCACHE := 1
 
 # Disable jack building to fix clang errors
-export ANDROID_COMPILE_WITH_JACK := false
+# export ANDROID_COMPILE_WITH_JACK := false
 
 UNAME := $(shell uname -s)
 ifeq (Linux,$(UNAME))
