@@ -12,30 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Check for target product
-
-ifeq (mallow_angler,$(TARGET_PRODUCT))
-
 # Include common configuration
 include vendor/mallow/main.mk
 
-# Inherit AOSP device configuration for angler
+# Inherit device configuration
 $(call inherit-product, device/huawei/angler/aosp_angler.mk)
 
-# Override AOSP build properties
+# Override build properties
 PRODUCT_NAME := mallow_angler
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := angler
 PRODUCT_MODEL := Nexus 6P
 PRODUCT_MANUFACTURER := Huawei
 
-# Device Fingerprint
+# Device fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=angler \
-    BUILD_FINGERPRINT=google/angler/angler:6.0.1/MTC19T/2741993:user/release-keys \
-    PRIVATE_BUILD_DESC="angler-user 6.0.1 MTC19T 2741993 release-keys"
-
-endif
+    BUILD_FINGERPRINT=google/angler/angler:6.0.1/MTC19V/2862947:user/release-keys \
+    PRIVATE_BUILD_DESC="angler-user 6.0.1 MTC19V 2862947 release-keys"
 
 # Inline kernel building
 TARGET_GCC_VERSION_ARM64 := 6.1
@@ -43,11 +37,11 @@ TARGET_KERNEL_SOURCE := kernel/huawei/angler
 TARGET_KERNEL_CONFIG := saber_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
-# Sabermod optimizations
-export STRICT_ALIASING := true
-export ENABLE_GCCONLY := true
-export GRAPHITE_OPTS := true
+# UBER optimizations
 export CLANG_O3 := true
-export CORTEX_TUNINGS := true
-export ENABLE_SANITIZE := true
 export USE_PIPE := true
+export GRAPHITE_OPTS := true
+export CORTEX_TUNINGS := true
+export ENABLE_GCCONLY := true
+export STRICT_ALIASING := true
+export ENABLE_SANITIZE := true
