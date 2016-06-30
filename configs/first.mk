@@ -27,6 +27,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.dun.override=0 \
     ro.sys.fw.bg_apps_limit=20 \
     debug.performance.tuning=1 \
+    ro.cmte.legacy.version=1 \
     ro.ril.power_collapse=1 \
     pm.sleep.mode=1 \
     ro.adb.secure=1
@@ -50,3 +51,4 @@ else
 PRODUCT_COPY_FILES += \
     vendor/$(VENDOR)/prebuilt/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
 endif
+
