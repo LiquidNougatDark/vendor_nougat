@@ -28,77 +28,81 @@
 
  HOST_OS := linux
 
- TARGET_ARCH_LIB_PATH := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-linux-android-$(TARGET_SM_AND)/lib
- export TARGET_ARCH_LIB_PATH := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-linux-android-$(TARGET_SM_AND)/lib
+  TARGET_ARCH_LIB_PATH := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-linux-android-$(TARGET_SM_AND)/lib
+  export TARGET_ARCH_LIB_PATH := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-linux-android-$(TARGET_SM_AND)/lib
 
- # Path to toolchain
- SM_AND_PATH := prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-linux-android-$(TARGET_SM_AND)
- SM_AND := $(shell cat $(SM_AND_PATH)/VERSION)
+  # Path to toolchain
+  SM_AND_PATH := prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-linux-android-$(TARGET_SM_AND)
+  SM_AND := $(shell cat $(SM_AND_PATH)/VERSION)
 
- # Find strings in version info
- SM_AND_NAME := $(filter %sabermod,$(SM_AND_PATH))
- SM_AND_DATE := $(filter 20140% 20141% 20150% 20151% 20160% 20161%,$(SM_AND_PATH))
- SM_AND_STATUS := $(filter (release) (prerelease) (experimental),$(SM_AND_PATH))
- SM_AND_VERSION := $(SM_AND_NAME)-$(SM_AND_DATE)-$(SM_AND_STATUS)
+  # Find strings in version info
+  SM_AND_NAME := $(filter %sabermod,$(SM_AND))
+  SM_AND_DATE := $(filter 20140% 20141% 20150% 20151% 20160% 20161%,$(SM_AND))
+  SM_AND_STATUS := $(filter (release) (prerelease) (experimental),$(SM_AND))
+  SM_AND_VERSION := $(SM_AND_NAME)-$(SM_AND_DATE)-$(SM_AND_STATUS)
 
- # Write version info to build.prop
- PRODUCT_PROPERTY_OVERRIDES += \
-   ro.sm.android=$(SM_AND_VERSION)
+   # Write version info to build.prop
+   PRODUCT_PROPERTY_OVERRIDES += \
+     ro.sm.android=$(SM_AND_VERSION)
 
- # Path to kernel toolchain
- SM_KERNEL_PATH := prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-$(TARGET_SM_KERNEL)
- SM_KERNEL := $(shell $(SM_KERNEL_PATH)/bin/aarch64-gcc --version)
+  # Path to kernel toolchain
+  SM_KERNEL_PATH := prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-$(TARGET_SM_KERNEL)
+  SM_KERNEL := $(shell $(SM_KERNEL_PATH)/bin/aarch64-linux-android-gcc --version)
 
- SM_KERNEL_NAME := $(filter %sabermod,$(SM_KERNEL))
- SM_KERNEL_DATE := $(filter 20140% 20141% 20150% 20151% 20160% 20161%,$(SM_KERNEL))
- SM_KERNEL_STATUS := $(filter (release) (prerelease) (experimental),$(SM_KERNEL))
- SM_KERNEL_VERSION := $(SM_KERNEL_NAME)-$(SM_KERNEL_DATE)-$(SM_KERNEL_STATUS)
+  SM_KERNEL_NAME := $(filter %sabermod,$(SM_KERNEL))
+  SM_KERNEL_DATE := $(filter 20140% 20141% 20150% 20151% 20160% 20161%,$(SM_KERNEL))
+  SM_KERNEL_STATUS := $(filter (release) (prerelease) (experimental),$(SM_KERNEL))
+  SM_KERNEL_VERSION := $(SM_KERNEL_NAME)-$(SM_KERNEL_DATE)-$(SM_KERNEL_STATUS)
 
- PRODUCT_PROPERTY_OVERRIDES += \
-   ro.sm.kernel=$(SM_KERNEL_VERSION)
+   PRODUCT_PROPERTY_OVERRIDES += \
+     ro.sm.kernel=$(SM_KERNEL_VERSION)
 
  # Add extra libs for the compilers to use
  export LD_LIBRARY_PATH := $(TARGET_ARCH_LIB_PATH):$(LD_LIBRARY_PATH)
  export LIBRARY_PATH := $(TARGET_ARCH_LIB_PATH):$(LIBRARY_PATH)
 
- ifeq ($(CLANG_O3), true)
-     OPT1 := (O3)
- endif
+# Used by DTC
+   OPT1 := (O3)
 
- ifeq ($(CORTEX_TUNINGS), true)
-     OPT2 := (cortex)
- endif
+ifeq ($(GRAPHITE_OPTS),true)
+   OPT2 := (graphite)
+endif
 
- ifeq ($(ENABLE_ARM_MODE), true)
-     OPT3 := (arm-mode)
- endif
+ifeq ($(STRICT_ALIASING),true)
+   OPT3 := (strict)
+endif
 
- ifeq ($(ENABLE_GCCONLY), true)
-     OPT4 := (gcconly)
- endif
+ifeq ($(CORTEX_TUNINGS),true)
+   OPT4 := (cortex)
+endif
 
- ifeq ($(ENABLE_SANITIZE), true)
-     OPT5 := (sanitize)
- endif
+ifeq ($(ENABLE_ARM_MODE),true)
+   OPT5 := (arm-mode)
+endif
 
- ifeq ($(GRAPHITE_OPTS), true)
-     OPT6 := (graphite)
- endif
+# Used by DTC
+   OPT6 := (polly)
 
- ifeq ($(STRICT_ALIASING), true)
-     OPT7 := (strict)
- endif
+ifeq ($(ENABLE_PTHREAD),true)
+   OPT7 := (pthread)
+endif
 
- ifeq ($(USE_PIPE),true)
-     OPT8 := (pipe)
- endif
+ifeq ($(ENABLE_GOMP),true)
+   OPT8 := (gomp)
+endif
 
- GCC_OPTIMIZATION_LEVELS := $(OPT1)$(OPT2)$(OPT3)$(OPT4)$(OPT5)$(OPT6)$(OPT7)$(OPT8)
+ifeq ($(ENABLE_EXTRAGCC),true)
+   OPT9 := (extras)
+endif
 
- ifneq ($(GCC_OPTIMIZATION_LEVELS),)
-   PRODUCT_PROPERTY_OVERRIDES += \
-     ro.sm.flags=$(GCC_OPTIMIZATION_LEVELS)
- endif
+ifeq ($(ENABLE_SANITIZE),true)
+   OPT10 := (mem-sanitize)
+endif
 
- export GCC_OPTIMIZATION_LEVELS
+  GCC_OPTIMIZATION_LEVELS := $(OPT1)$(OPT2)$(OPT3)$(OPT4)$(OPT5)$(OPT6)$(OPT7)$(OPT8)$(OPT9)$(OPT10)
 
+  ifneq ($(GCC_OPTIMIZATION_LEVELS),)
+    PRODUCT_PROPERTY_OVERRIDES += \
+      ro.sm.flags=$(GCC_OPTIMIZATION_LEVELS)
+  endif
+export GCC_OPTIMIZATION_LEVELS

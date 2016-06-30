@@ -140,6 +140,7 @@ PRODUCT_COPY_FILES += \
     vendor/$(VENDOR)/prebuilt/etc/v4a.zip:system/addon.d/v4a.zip \
     vendor/$(VENDOR)/prebuilt/addon.d/91-v4a.sh:system/addon.d/91-v4a.sh
 
+# Include optimizations
 ifeq ($(TARGET_DEVICE),shamu)
    include vendor/mallow/configs/optimize/arm.mk
 else
