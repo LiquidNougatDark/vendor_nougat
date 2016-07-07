@@ -31,6 +31,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     pm.sleep.mode=1 \
     ro.adb.secure=1
 
+# GoogleDNS
+PRODUCT_PROPERTY_OVERRIDES += \
+    net.rmnet0.dns1=8.8.8.8 \
+    net.rmnet0.dns2=8.8.4.4 \
+    net.dns1=8.8.8.8 \
+    net.dns2=8.8.4.4
+
 # Enable SIP+VoIP
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
