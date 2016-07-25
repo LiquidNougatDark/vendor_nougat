@@ -15,7 +15,7 @@ PRODUCT_COPY_FILES += \
     vendor/$(VENDOR)/prebuilt/etc/init.d/90userinit:system/etc/init.d/90userinit
 
 # backup script
- PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     vendor/$(VENDOR)/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
     vendor/$(VENDOR)/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions \
     vendor/$(VENDOR)/prebuilt/bin/50-backupScript.sh:system/addon.d/50-backupScript.sh
@@ -28,6 +28,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/$(VENDOR)/prebuilt/etc/99SuperSUDaemon:system/etc/init.d/99SuperSUDaemon \
     vendor/$(VENDOR)/prebuilt/common/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip
+
+# Viper4Android
+PRODUCT_COPY_FILES += \
+    vendor/mallow/prebuilt/etc/v4a.zip:system/addon.d/v4a.zip \
+    vendor/mallow/prebuilt/addon.d/91-v4a.sh:system/addon.d/91-v4a.sh
 
 ifneq ($(filter mallow_flo mallow_hammerhead mallow_shamu,$(TARGET_PRODUCT)),)
 # media effects
