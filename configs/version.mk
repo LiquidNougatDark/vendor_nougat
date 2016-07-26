@@ -25,7 +25,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.mallow.buildtype=$(MALLOW_BUILD_TYPE)
 
 # DragonTC info
-DRAGONTC_VERSION := 3.9
+DRAGONTC_VERSION := 4.0
 export $(DRAGONTC_VERSION)
 
 DTC_PATH := prebuilts/clang/linux-x86/host/$(DRAGONTC_VERSION)
