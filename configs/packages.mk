@@ -2,7 +2,7 @@
 PRODUCT_PACKAGES += \
     Busybox \
     KernelAdiutor \
-    Viper4Android
+    ViPER4Android
 
 # Included packages
 PRODUCT_PACKAGES += \
