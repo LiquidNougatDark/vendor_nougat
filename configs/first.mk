@@ -52,6 +52,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     net.dns1=8.8.8.8 \
     net.dns2=8.8.4.4
 
+# Don't compile SystemUITests
+EXCLUDE_SYSTEMUI_TESTS := true
+
 # Enable SIP+VoIP
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
