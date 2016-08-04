@@ -43,5 +43,6 @@ export USE_PIPE := true
 export GRAPHITE_OPTS := true
 export CORTEX_TUNINGS := true
 export ENABLE_GCCONLY := true
+export ENABLE_ARM_MODE := true
 export STRICT_ALIASING := true
 export ENABLE_SANITIZE := true
