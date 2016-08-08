@@ -16,11 +16,3 @@ export ENABLE_GCCONLY := true
 export ENABLE_SANITIZE := true
 export STRICT_ALIASING := true
 export USE_PIPE := true
-
-# Kernel toolchain
-ifeq ($(TARGET_DEVICE),shamu)
-export TARGET_GCC_VERSION_ARM := 7.0
-else
-export TARGET_GCC_VERSION_ARM64 := 7.0
-endif
-
