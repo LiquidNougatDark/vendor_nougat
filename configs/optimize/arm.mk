@@ -33,6 +33,7 @@
 
  # Path to ROM toolchain
  SM_AND_PATH := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-$(TARGET_SM_AND)
+ SM_AND := $(shell cat $(SM_AND_PATH)/VERSION)
 
  # Find strings in version info
  SM_AND_NAME := $(filter %sabermod,$(SM_AND_PATH))
@@ -42,19 +43,19 @@
 
  # Write version info to build.prop
  PRODUCT_PROPERTY_OVERRIDES += \
-     ro.sm.android=$(SM_AND_VERSION)
+   ro.sm.android=$(SM_AND_VERSION)
 
  # Path to kernel toolchain
  SM_KERNEL_PATH := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-eabi-$(TARGET_SM_KERNEL)
  SM_KERNEL := $(shell $(SM_KERNEL_PATH)/bin/arm-eabi-gcc --version)
 
- SM_KERNEL_NAME := $(filter %sabermod,$(SM_KERNEL))
+ SM_KERNEL_NAME := $(filter %linaro,$(SM_KERNEL))
  SM_KERNEL_DATE := $(filter 20140% 20141% 20150% 20151% 20160% 20161%,$(SM_KERNEL))
  SM_KERNEL_STATUS := $(filter (release) (prerelease) (experimental),$(SM_KERNEL))
  SM_KERNEL_VERSION := $(SM_KERNEL_NAME)-$(SM_KERNEL_DATE)-$(SM_KERNEL_STATUS)
 
  PRODUCT_PROPERTY_OVERRIDES += \
-     ro.sm.kernel=$(SM_KERNEL_VERSION)
+   ro.sm.kernel=$(SM_KERNEL_VERSION)
 
  # Add extra libs for the compilers to use
  export LD_LIBRARY_PATH := $(TARGET_ARCH_LIB_PATH):$(LD_LIBRARY_PATH)
@@ -94,7 +95,10 @@
 
  GCC_OPTIMIZATION_LEVELS := $(OPT1)$(OPT2)$(OPT3)$(OPT4)$(OPT5)$(OPT6)$(OPT7)$(OPT8)
 
- PRODUCT_PROPERTY_OVERRIDES += \
+ ifneq ($(GCC_OPTIMIZATION_LEVELS),)
+   PRODUCT_PROPERTY_OVERRIDES += \
      ro.sm.flags=$(GCC_OPTIMIZATION_LEVELS)
+ endif
 
  export GCC_OPTIMIZATION_LEVELS
+
