@@ -1,16 +1,21 @@
-# Target device name
-#export TARGET_DEVICE := angler
-export TARGET_DEVICE := shamu
+
+export TARGET_DEVICE := angler
+#export TARGET_DEVICE := shamu
 
 # Build ccache
 export USE_CCACHE := 1
 export USE_SYSTEM_CCACHE := 1
 export ANDROID_COMPILE_WITH_JACK := true
 
-# Kernel toolchain
+# Build toolchains
+export TARGET_NDK_GCC_VERSION := 4.9
 ifeq ($(TARGET_DEVICE),shamu)
+export TARGET_GCC_VERSION_EXP := 6.1
+export TARGET_GCC_VERSION := 6.1
 export TARGET_GCC_VERSION_ARM := 7.0
 else
+export TARGET_GCC_VERSION_EXP := 6.1
+export TARGET_GCC_VERSION := 6.1
 export TARGET_GCC_VERSION_ARM64 := 7.0
 endif
 
