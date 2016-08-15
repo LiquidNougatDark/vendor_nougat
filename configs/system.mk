@@ -120,7 +120,9 @@ PRODUCT_COPY_FILES += \
     vendor/$(VENDOR)/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 else
 PRODUCT_COPY_FILES += \
-    vendor/$(VENDOR)/prebuilt/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so
+    vendor/$(VENDOR)/prebuilt/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
+    vendor/$(VENDOR)/prebuilt/lib64/libjni_keyboarddecoder.so:system/lib64/libjni_keyboarddecoder \
+    vendor/$(VENDOR)/prebuilt/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
 endif
 
 # Media effects
