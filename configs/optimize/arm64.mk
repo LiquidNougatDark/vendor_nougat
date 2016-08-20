@@ -47,7 +47,7 @@
 
   # Path to kernel toolchain
   SM_KERNEL_PATH := prebuilts/gcc/$(HOST_PREBUILT_TAG)/aarch64/aarch64-$(TARGET_SM_KERNEL)
-  SM_KERNEL := $(shell $(SM_KERNEL_PATH)/bin/aarch64-linux-android-gcc --version)
+  SM_KERNEL := $(shell $(SM_KERNEL_PATH)/bin/aarch64-gcc --version)
 
   SM_KERNEL_NAME := $(filter %sabermod,$(SM_KERNEL))
   SM_KERNEL_DATE := $(filter 20140% 20141% 20150% 20151% 20160% 20161%,$(SM_KERNEL))
