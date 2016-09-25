@@ -58,6 +58,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/nougat/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 
+# Viper4Android
+PRODUCT_COPY_FILES += \
+    vendor/liquid/prebuilt/addon.d/viper.zip:system/addon.d/viper.zip
+
 # Camera effects
 ifneq ($(filter nougat_shamu,$(TARGET_PRODUCT)),)
 PRODUCT_COPY_FILES +=  \
