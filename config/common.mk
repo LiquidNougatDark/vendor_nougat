@@ -81,7 +81,8 @@ PRODUCT_PACKAGES += \
     Busybox \
     Gallery2 \
     Launcher3 \
-    masquerade
+    masquerade \
+    QuickSearchBox
 
 # Exclude SystemUI tests
 EXCLUDE_SYSTEMUI_TESTS := true
