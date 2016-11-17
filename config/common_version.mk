@@ -12,5 +12,5 @@ ROM_VERSION := $(ROM_DATE)-$(TARGET_DEVICE)
 export ROM_VERSION
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.nougat.version=$(ROM_VERSION) \
-  ro.modversion=$(ROM_VERSION)
+  ro.nougat.version=$(ROM_NAME)-$(ROM_VERSION) \
+  ro.modversion=$(ROM_NAME)-$(ROM_VERSION)
