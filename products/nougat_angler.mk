@@ -10,7 +10,7 @@ $(call inherit-product, vendor/nougat/config/common_full_phone.mk)
 # Override build properties
 
 PRODUCT_NAME := nougat_angler
-PRODUCT_BRAND := Google
+PRODUCT_BRAND := google
 PRODUCT_DEVICE := angler
 PRODUCT_MODEL := Nexus 6P
 PRODUCT_MANUFACTURER := Huawei
@@ -18,6 +18,6 @@ PRODUCT_MANUFACTURER := Huawei
 # Device fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=angler \
-    PRIVATE_BUILD_DESC="angler-user 7.0 NBD91K 3318877 release-keys" \
-    BUILD_FINGERPRINT=google/angler/angler:7.0/NBD91K/3318877:user/release-keys
+    PRIVATE_BUILD_DESC="angler-user 7.1.1 N4F26J 3549317 release-keys" \
+    BUILD_FINGERPRINT=google/angler/angler:7.1.1/N4F26J/3549317:user/release-keys
 
