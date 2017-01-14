@@ -40,7 +40,6 @@ PRODUCT_COPY_FILES += \
 # Backup script
 PRODUCT_COPY_FILES += \
     vendor/nougat/prebuilt/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/nougat/prebuilt/addon.d/50-nougat.sh:system/addon.d/50-nougat.sh \
     vendor/nougat/prebuilt/bin/backuptool.functions:system/bin/backuptool.functions
 
 # Boot animation
@@ -59,7 +58,7 @@ PRODUCT_COPY_FILES += \
 
 # SuperSU
 PRODUCT_COPY_FILES += \
-    vendor/nougat/prebuilt/addon.d/UPDATE-SuperSU.zip:system/addon.d/UPDATE-SuperSU.zip
+    vendor/nougat/prebuilt/addon.d/supersu.zip:system/addon.d/supersu.zip
 
 # Include packages
 PRODUCT_PACKAGES += \
