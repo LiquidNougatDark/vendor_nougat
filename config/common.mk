@@ -52,9 +52,7 @@ PRODUCT_COPY_FILES += \
 
 # Gestures libraries
 PRODUCT_COPY_FILES += \
-    vendor/nougat/prebuilt/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
-    vendor/nougat/prebuilt/lib64/libjni_keyboarddecoder.so:system/lib64/libjni_keyboarddecoder \
-    vendor/nougat/prebuilt/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
+    vendor/nougat/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 
 # SuperSU
 PRODUCT_COPY_FILES += \
