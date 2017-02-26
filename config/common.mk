@@ -54,10 +54,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/nougat/prebuilt/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 
-# SuperSU
-PRODUCT_COPY_FILES += \
-    vendor/nougat/prebuilt/addon.d/supersu.zip:system/addon.d/supersu.zip
-
 # Include packages
 PRODUCT_PACKAGES += \
     AOSPLinks \
