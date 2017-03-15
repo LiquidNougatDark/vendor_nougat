@@ -65,8 +65,8 @@ PRODUCT_PACKAGES += \
     Busybox \
     Gallery2 \
     Launcher3 \
-    masquerade \
-    QuickSearchBox
+    QuickSearchBox \
+    ThemeInterfacer
 
 # Facelock issues
 PRODUCT_PACKAGES += \
