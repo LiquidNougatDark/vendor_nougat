@@ -68,6 +68,10 @@ PRODUCT_COPY_FILES +=  \
     vendor/nougat/prebuilt/vendor/media/LMspeed_508.emd:system/vendor/media/LMspeed_508.emd \
     vendor/nougat/prebuilt/vendor/media/PFFprec_600.emd:system/vendor/media/PFFprec_600.emd
 endif
+    
+# Magisk
+PRODUCT_COPY_FILES += \
+    vendor/liquid/prebuilt/addon.d/Magisk.zip:system/addon.d/Magisk.zip
 
 # Include packages
 PRODUCT_PACKAGES += \
@@ -76,6 +80,8 @@ PRODUCT_PACKAGES += \
     Gallery2 \
     Launcher3 \
     QuickSearchBox \
+    Magisk \
+    MagiskManager \
     ThemeInterfacer
 
 # Facelock issues
