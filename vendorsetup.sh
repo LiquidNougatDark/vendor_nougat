@@ -1,1 +1,2 @@
 add_lunch_combo nougat_angler-user
+add_lunch_combo nougat_shamu-user
