@@ -7,8 +7,11 @@ $(call inherit-product, vendor/nougat/config/common.mk)
 # Inherit some phone stuff
 $(call inherit-product, vendor/nougat/config/common_full_phone.mk)
 
-# Override build properties
+# Target device
+TARGET_DEVICE := shamu
+export TARGET_DEVICE
 
+# Override build properties
 PRODUCT_NAME := nougat_shamu
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := shamu

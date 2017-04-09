@@ -7,8 +7,11 @@ $(call inherit-product, vendor/nougat/config/common.mk)
 # Inherit some phone stuff
 $(call inherit-product, vendor/nougat/config/common_full_phone.mk)
 
-# Override build properties
+# Target device
+TARGET_DEVICE := angler
+export TARGET_DEVICE
 
+# Override build properties
 PRODUCT_NAME := nougat_angler
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := angler
