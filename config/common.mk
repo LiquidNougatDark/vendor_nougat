@@ -60,7 +60,7 @@ PRODUCT_COPY_FILES += \
 
 # Viper4Android
 PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/addon.d/viper.zip:system/addon.d/viper.zip
+    vendor/nougat/prebuilt/addon.d/viper.zip:system/addon.d/viper.zip
 
 # Camera effects
 ifneq ($(filter nougat_shamu,$(TARGET_PRODUCT)),)
@@ -71,7 +71,7 @@ endif
     
 # Magisk
 PRODUCT_COPY_FILES += \
-    vendor/liquid/prebuilt/addon.d/Magisk.zip:system/addon.d/Magisk.zip
+    vendor/nougat/prebuilt/addon.d/Magisk.zip:system/addon.d/Magisk.zip
 
 # Include packages
 PRODUCT_PACKAGES += \
