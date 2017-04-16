@@ -71,7 +71,8 @@ endif
     
 # Magisk
 PRODUCT_COPY_FILES += \
-    vendor/nougat/prebuilt/addon.d/Magisk.zip:system/addon.d/Magisk.zip
+    vendor/nougat/prebuilt/addon.d/Magisk.zip:system/addon.d/Magisk.zip \
+    vendor/nougat/prebuilt/magisk/MagiskManager.apk:system/app/MagiskManager/MagiskManager.apk
 
 # Include packages
 PRODUCT_PACKAGES += \
