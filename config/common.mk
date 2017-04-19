@@ -60,7 +60,12 @@ PRODUCT_COPY_FILES += \
 
 # Viper4Android
 PRODUCT_COPY_FILES += \
-    vendor/nougat/prebuilt/addon.d/viper.zip:system/addon.d/viper.zip
+    vendor/nougat/prebuilt/addon.d/viper.zip:system/addon.d/viper.zip \
+    vendor/nougat/prebuilt/Viper4Android/Viper4Android.apk:system/app/Viper4Android/Viper4Android.apk
+    
+# Kerneladiutor
+PRODUCT_COPY_FILES += \
+    vendor/nougat/prebuilt/Kerneladiutor/Kerneladiutor.apk:system/app/Kerneladiutor/Kerneladiutor.apk    
 
 # Camera effects
 ifneq ($(filter nougat_shamu,$(TARGET_PRODUCT)),)
