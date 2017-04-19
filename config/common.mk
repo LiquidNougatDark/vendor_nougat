@@ -61,7 +61,7 @@ PRODUCT_COPY_FILES += \
 # Viper4Android
 PRODUCT_COPY_FILES += \
     vendor/nougat/prebuilt/addon.d/viper.zip:system/addon.d/viper.zip \
-    vendor/nougat/prebuilt/Viper4Android/Viper4Android.apk:system/app/Viper4Android/Viper4Android.apk
+    vendor/nougat/prebuilt/ViPER4Android/ViPER4Android.apk:system/app/ViPER4Android/ViPER4Android.apk
     
 # Kerneladiutor
 PRODUCT_COPY_FILES += \
