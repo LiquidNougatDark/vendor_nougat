@@ -65,7 +65,11 @@ PRODUCT_COPY_FILES += \
     
 # Kerneladiutor
 PRODUCT_COPY_FILES += \
-    vendor/nougat/prebuilt/Kerneladiutor/Kerneladiutor.apk:system/app/Kerneladiutor/Kerneladiutor.apk    
+    vendor/nougat/prebuilt/KernelAdiutor/KernelAdiutor.apk:system/app/KernelAdiutor/KernelAdiutor.apk
+    
+# Adaway
+PRODUCT_COPY_FILES += \
+    vendor/nougat/prebuilt/Adaway/Adaway.apk:system/app/Adaway/Adaway.apk         
 
 # Camera effects
 ifneq ($(filter nougat_shamu,$(TARGET_PRODUCT)),)
