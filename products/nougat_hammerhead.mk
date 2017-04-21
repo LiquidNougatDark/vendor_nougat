@@ -5,8 +5,10 @@ PRODUCT_RELEASE_NAME := Nexus5
 $(call inherit-product, device/lge/hammerhead/aosp_hammerhead.mk)
 
 # Inherit some common stuff
-$(call inherit-product, vendor/nougat/configs/common.mk)
-$(call inherit-product, vendor/nougat/configs/common_full_phone.mk)
+$(call inherit-product, vendor/nougat/config/common.mk)
+
+# Inherit some phone stuff
+$(call inherit-product, vendor/nougat/config/common_full_phone.mk)
 
 # Override build properties
 PRODUCT_DEVICE := hammerhead
