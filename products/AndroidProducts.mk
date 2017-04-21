@@ -7,3 +7,6 @@ endif
 ifeq (nougat_bullhead,$(TARGET_PRODUCT))
     PRODUCT_MAKEFILES += $(LOCAL_DIR)/nougat_bullhead.mk
 endif
+ifeq (nougat_hammerhead,$(TARGET_PRODUCT))
+    PRODUCT_MAKEFILES += $(LOCAL_DIR)/nougat_hammerhead.mk
+endif
